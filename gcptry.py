@@ -11,10 +11,10 @@ query_job = client.query("""
     FROM `bigquery-public-data.stackoverflow.post_links` pl
     LEFT JOIN `bigquery-public-data.stackoverflow.posts_answers` pa
     on pl.id = pa.id
-    order by creation_date asc """)
+    order by score desc """)
 
 results = query_job.result()
-count = 1
+count = 0
 for row in results:
     print(row)
     count += 1
